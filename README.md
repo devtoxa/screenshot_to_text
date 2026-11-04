@@ -1,4 +1,4 @@
-# Screenshot to Code
+# Screenshot to Text
 
 **F12** 를 누를 때만 동작하는 코드 스크린샷 → 텍스트 도구입니다.
 평소에는 트레이에서 조용히 대기하고, **F12를 눌렀을 때만** 화면을 캡처합니다.
@@ -277,7 +277,7 @@ run.bat                 실행 (콘솔 없이)
 run-console.bat         실행 (로그 보기)
 ```
 
-이 문서는 `docs/Screenshot-to-Code_Guide.pdf` 로도 제공됩니다.
+이 문서는 `docs/Screenshot-to-Text_Guide.pdf` 로도 제공됩니다.
 수정 후 다시 만들려면:
 
 ```bat
@@ -451,3 +451,4 @@ OCR 결과는 단어 박스 목록입니다. 이를 코드처럼 보이게 재�
 | 1.0.0 | F12 캡처, 영역 선택 오버레이, 코드 OCR, 클립보드 복사 |
 | 1.1.0 | 한국어 OCR 모델 내장, 결과 창/배지, 트레이 |
 | 1.2.0 | 포커스 복구, `keyboard` 라이브러리 제거(Alt+Tab 무간섭), 64비트 HWND 수정 |
+| 1.3.0 | 이름 변경(Screenshot to Code → Screenshot to Text), README/PDF 문서 정리 |

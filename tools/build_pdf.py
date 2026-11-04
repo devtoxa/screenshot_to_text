@@ -4,8 +4,8 @@
     .venv\\Scripts\\python.exe tools\\build_pdf.py
 
 결과:
-    docs/Screenshot-to-Code.html
-    docs/Screenshot-to-Code_Guide.pdf
+    docs/Screenshot-to-Text.html
+    docs/Screenshot-to-Text_Guide.pdf
 """
 
 from __future__ import annotations
@@ -20,8 +20,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 DOCS = ROOT / "docs"
-HTML_PATH = DOCS / "Screenshot-to-Code.html"
-PDF_PATH = DOCS / "Screenshot-to-Code_Guide.pdf"
+HTML_PATH = DOCS / "Screenshot-to-Text.html"
+PDF_PATH = DOCS / "Screenshot-to-Text_Guide.pdf"
 
 BROWSER_CANDIDATES = [
     Path(os.environ.get("ProgramFiles(x86)", r"C:\Program Files (x86)"))
@@ -195,7 +195,7 @@ tr { page-break-inside: avoid; }
 COVER = """
 <section class="cover">
   <div class="kicker">사용 설명서 &amp; 개발 정리</div>
-  <h1>Screenshot<br>to Code</h1>
+  <h1>Screenshot<br>to Text</h1>
   <p class="lead">
     F12 한 번으로 화면 속 코드를 텍스트로.<br>
     한글·영어 OCR 내장, API 키 없이 오프라인 동작.
@@ -243,14 +243,14 @@ def build_html(version: str) -> str:
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>Screenshot to Code — 사용 설명서 &amp; 개발 정리</title>
+<title>Screenshot to Text — 사용 설명서 &amp; 개발 정리</title>
 <style>{CSS}</style>
 </head>
 <body>
 {cover}
 {toc}
 {body}
-<p class="footer-note">Screenshot to Code v{version} · {dt.date.today().isoformat()}</p>
+<p class="footer-note">Screenshot to Text v{version} · {dt.date.today().isoformat()}</p>
 </body>
 </html>
 """

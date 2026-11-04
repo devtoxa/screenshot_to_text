@@ -4,7 +4,7 @@ setlocal
 cd /d "%~dp0"
 
 echo ============================================
-echo  Screenshot to Code  설치
+echo  Screenshot to Text  설치
 echo ============================================
 echo.
 

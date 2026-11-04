@@ -35,9 +35,9 @@ class Tray:
         ]
 
         self._icon = pystray.Icon(
-            "screenshot_to_code",
+            "screenshot_to_text",
             image,
-            "Screenshot to Code  ·  F12",
+            "Screenshot to Text  ·  F12",
             menu=pystray.Menu(*items),
         )
         self._running = False
@@ -49,7 +49,7 @@ class Tray:
 
     def notify(self, message: str) -> None:
         try:
-            self._icon.notify(message, "Screenshot to Code")
+            self._icon.notify(message, "Screenshot to Text")
         except Exception:  # noqa: BLE001
             pass
 

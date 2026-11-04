@@ -1,4 +1,4 @@
-"""Screenshot to Code — F12 를 눌렀을 때만 화면의 코드를 텍스트로 추출한다."""
+"""Screenshot to Text — F12 를 눌렀을 때만 화면의 코드를 텍스트로 추출한다."""
 
 from __future__ import annotations
 
@@ -24,6 +24,7 @@ from stc.toast import Toast
 
 ROOT = Path(__file__).resolve().parent
 LOG_PATH = ROOT / "app.log"
+# 내부 식별자: 이름을 바꾸면 이전 버전과 동시에 실행될 수 있어 그대로 둔다.
 MUTEX_NAME = "Local\\ScreenshotToCode_single_instance"
 
 HOTKEY_CAPTURE = 1
@@ -97,7 +98,7 @@ class App:
         self.cfg = cfg
         self.root = tk.Tk()
         self.root.withdraw()
-        self.root.title("Screenshot to Code")
+        self.root.title("Screenshot to Text")
 
         ico = icon.ensure_ico()
         if ico:
@@ -152,7 +153,7 @@ class App:
         from tkinter import messagebox
 
         messagebox.showwarning(
-            "Screenshot to Code",
+            "Screenshot to Text",
             "전역 단축키(F12)를 등록하지 못했습니다.\n\n"
             "· config.json 의 hotkey 값이 올바른지 확인하세요. (예: f12, ctrl+alt+s)\n"
             "· 관리자 권한으로 실행 중인 앱 위에서는 단축키가 동작하지 않을 수 있습니다.\n"
@@ -556,14 +557,14 @@ def run_from_image(path: Path, cfg: AppConfig) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="screenshot-to-code", description="F12를 누를 때만 코드 스크린샷을 텍스트로 변환")
+    parser = argparse.ArgumentParser(prog="screenshot-to-text", description="F12를 누를 때만 코드 스크린샷을 텍스트로 변환")
     parser.add_argument("--hotkey", help="캡처 단축키 (기본: config.json 값, f12)")
     parser.add_argument("--backend", choices=["auto", "rapid", "winocr", "vision", "tesseract"], help="OCR 백엔드 강제 지정")
     parser.add_argument("--from-image", type=Path, help="파일을 바로 OCR 해서 stdout 으로 출력 (테스트용)")
     parser.add_argument("--no-tray", action="store_true", help="트레이 아이콘 사용 안 함")
     parser.add_argument("--no-hotkey", action="store_true", help="전역 단축키 사용 안 함")
     parser.add_argument("--verbose", "-v", action="store_true", help="콘솔에 로그 출력")
-    parser.add_argument("--version", action="version", version=f"screenshot-to-code {__version__}")
+    parser.add_argument("--version", action="version", version=f"screenshot-to-text {__version__}")
     args = parser.parse_args(argv)
 
     cfg = config.load()
@@ -597,7 +598,7 @@ def main(argv: list[str] | None = None) -> int:
             from tkinter import messagebox
 
             messagebox.showinfo(
-                "Screenshot to Code",
+                "Screenshot to Text",
                 "이미 실행 중입니다.\n화면 오른쪽 아래 트레이 아이콘을 확인하세요.",
             )
             root.destroy()
