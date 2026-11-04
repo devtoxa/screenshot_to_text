@@ -1,0 +1,20 @@
+# 화면 캡처
+mss>=10.0
+pillow>=10.0
+pystray>=0.19
+
+# 문서 생성 (README → PDF)
+markdown>=3.5
+
+# 로컬 OCR (기본 엔진)
+numpy>=1.26
+rapidocr-onnxruntime>=1.2.3
+
+# Windows 내장 OCR (선택 백엔드)
+winrt-runtime>=3.0; sys_platform == "win32"
+winrt-Windows.Media.Ocr; sys_platform == "win32"
+winrt-Windows.Graphics.Imaging; sys_platform == "win32"
+winrt-Windows.Storage.Streams; sys_platform == "win32"
+winrt-Windows.Globalization; sys_platform == "win32"
+winrt-Windows.Foundation; sys_platform == "win32"
+winrt-Windows.Foundation.Collections; sys_platform == "win32"
